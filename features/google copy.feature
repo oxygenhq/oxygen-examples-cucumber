@@ -1,4 +1,4 @@
-Feature: Enter a search in Google
+Feature: google search
     As a User
     I want to search Google
     
@@ -6,12 +6,14 @@ Feature: Enter a search in Google
         Given I open the url "https://google.com"
         Then I expect that the page title is "Google"
 
+    @googleSearch1
     Scenario: Search results should display the search term in the page title when pressing "enter"
         Given the page title is "Google"
         When I enter the search term "cats"
         And I submit the search by pressing "enter"
         Then The search result page title should contain the search term
 
+   @googleSearch1
     Scenario: Search results should display the search term in the page title when pressing "search"
         Given the page title is "Google"
         When I enter the search term "dogs"
