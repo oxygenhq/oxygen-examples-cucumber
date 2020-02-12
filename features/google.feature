@@ -6,12 +6,14 @@ Feature: Enter a search in Google
         Given I open the url "https://google.com"
         Then I expect that the page title is "Google"
 
+    @googleSearch2_a @googleSearch2_b
     Scenario: Search results should display the search term in the page title when pressing "enter"
         Given The page title is "Google"
         When I enter the search term "cats"
         And I click the "Search" button
         Then The search result page title should contain the search term "cats"
 
+    @googleSearch2_a @googleSearch2_b
     Scenario: Search results should display the search term in the page title when pressing "search"
         Given The page title is "Google"
         When I enter the search term "dogs"
