@@ -21,6 +21,7 @@ Feature: Enter a search in Google
         Then The search result page title should contain the search term "dogs"
     
     # This essentially does the same thing as the two above scenarios: included as a technical demo
+    @test2
     Scenario Outline: Search results should display the search term in the title regardless of submission method
         Given The page title is "Google"
         When I enter the search term "<search_term>"
