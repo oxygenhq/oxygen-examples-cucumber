@@ -20,7 +20,6 @@ Feature: Enter a search in Google
         And I click the "Search" button
         Then The search result page title should contain the search term "dogs"
     
-
     @test2
     Scenario Outline: Search results should display the search term in the title regardless of submission method
         Given The page title is "Google"
