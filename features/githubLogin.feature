@@ -1,10 +1,10 @@
 
-@githubLogin
+@Github_Login
 Feature: Github login test
     As a Developer in Test
     I want to test if the github.com failed login screen displays an error
 
-    Scenario: login with fake credentials
+    Scenario: Login with fake credentials
         Given I open the url "https://github.com/login"
         And   I clear the inputfield "#login_field"
         When  I add "marketionist" to the inputfield "#login_field"

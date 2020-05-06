@@ -6,21 +6,21 @@ Feature: Enter a search in Google
         Given I open the url "https://google.com"
         Then I expect that the page title is "Google"
 
-    @googleSearch2_a @googleSearch2_b
+    @Google_SearchCats
     Scenario: Search results should display the search term in the page title when pressing "enter"
         Given The page title is "Google"
         When I enter the search term "cats"
         And I click the "Search" button
         Then The search result page title should contain the search term "cats"
 
-    @googleSearch2_a @googleSearch2_b
+    @Google_SearchDogs
     Scenario: Search results should display the search term in the page title when pressing "search"
         Given The page title is "Google"
         When I enter the search term "dogs"
         And I click the "Search" button
         Then The search result page title should contain the search term "dogs"
     
-    @test2
+    @Google_Outline
     Scenario Outline: Search results should display the search term in the title regardless of submission method
         Given The page title is "Google"
         When I enter the search term "<search_term>"
