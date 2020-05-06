@@ -1,6 +1,6 @@
 
 @Github_Login
-Feature: Github login test
+Feature: Github login
     As a Developer in Test
     I want to test if the github.com failed login screen displays an error
 

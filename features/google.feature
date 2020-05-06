@@ -1,4 +1,4 @@
-Feature: Enter a search in Google
+Feature: Google search
     As a User
     I want to search Google
     
