@@ -160,7 +160,7 @@ module.exports = {
         afterSuite: function(runId, suiteResult, error) {
         },
         afterTest: function(runId, testResult, error) {
-            web.dispose();
+            web.dispose(testResult.status);
             //eyes.dispose();
         }
     }
