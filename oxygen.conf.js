@@ -30,7 +30,7 @@ module.exports = {
     // List services you want to enable during the test execution.
     // Available services: selenium-standalone | devtools
     //
-    services: ['selenium-standalone', 'devtools'],   
+    services: ['devtools'],   
     //
     // =======
     // Modules
