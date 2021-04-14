@@ -5,6 +5,7 @@
  *                              not
  */
 export default (name, falseCase) => {
+    const chai = require('chai');
     /**
      * The cookie as retrieved from the browser
      * @type {Object}
@@ -12,12 +13,12 @@ export default (name, falseCase) => {
     const cookie = web.getCookies(name);
 
     if (falseCase) {
-        expect(cookie.length).to.equal(
+        chai.expect(cookie.length).to.equal(
             0,
             `Expected cookie "${name}" not to exists but it does`
         );
     } else {
-        expect(cookie.length).to.not.equal(
+        chai.expect(cookie.length).to.not.equal(
             0,
             `Expected cookie "${name}" to exists but it does not`
         );

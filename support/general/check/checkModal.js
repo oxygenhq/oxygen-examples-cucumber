@@ -5,6 +5,7 @@
  * @param  {String}   falseState Whether to check if the modal was opened or not
  */
 export default (modalType, falseState) => {
+    const chai = require('chai');
     /**
      * The text of the prompt
      * @type {String}
@@ -15,7 +16,7 @@ export default (modalType, falseState) => {
         promptText = web.getAlertText();
 
         if (falseState) {
-            expect(promptText).to.not
+            chai.expect(promptText).to.not
                 .equal(
                     null,
                     `A ${modalType} was opened when it shouldn't`
@@ -23,7 +24,7 @@ export default (modalType, falseState) => {
         }
     } catch (e) {
         if (!falseState) {
-            expect(promptText).to
+            chai. expect(promptText).to
                 .equal(
                     null,
                     `A ${modalType} was not opened when it should have been`

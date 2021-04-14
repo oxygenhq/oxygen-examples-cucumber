@@ -6,6 +6,7 @@
  * @param  {String}   selector2  Element selector for the second element
  */
 export default (selector1, falseCase, selector2) => {
+    const chai = require('chai');
     /**
      * The text of the first element
      * @type {String}
@@ -19,12 +20,12 @@ export default (selector1, falseCase, selector2) => {
     const text2 = $(selector2).getText();
 
     if (falseCase) {
-        expect(text1).to.not.equal(
+        chai.expect(text1).to.not.equal(
             text2,
             `Expected text not to be "${text1}"`
         );
     } else {
-        expect(text1).to.equal(
+        chai.expect(text1).to.equal(
             text2,
             `Expected text to be "${text1}" but found "${text2}"`
         );

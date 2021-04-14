@@ -5,6 +5,7 @@
  *                              or not
  */
 export default (obsolete, falseCase) => {
+    const chai = require('chai');
     /**
      * The handles of all open windows/tabs
      * @type {Object}
@@ -14,10 +15,10 @@ export default (obsolete, falseCase) => {
     }
 
     if (falseCase) {
-        expect(windowHandles.length).to
+        chai.expect(windowHandles.length).to
             .equal(1, 'A new window should not have been opened');
     } else {
-        expect(windowHandles.length).to.not
+        chai.expect(windowHandles.length).to.not
             .equal(1, 'A new window has been opened');
     }
 };

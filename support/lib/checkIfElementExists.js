@@ -6,6 +6,7 @@
  *                            of times
  */
 export default (selector, falsCase, exactly) => {
+    const chai = require('chai');
     /**
      * The number of elements found in the DOM
      * @type {Int}
@@ -13,18 +14,18 @@ export default (selector, falsCase, exactly) => {
     const nrOfElements = $$(selector);
 
     if (falsCase === true) {
-        expect(nrOfElements).to.have.lengthOf(
+        chai.expect(nrOfElements).to.have.lengthOf(
             0,
             `Element with selector "${selector}" should not exist on the page`
         );
     } else if (exactly) {
-        expect(nrOfElements).to.have.lengthOf(
+        chai.expect(nrOfElements).to.have.lengthOf(
             exactly,
             `Element with selector "${selector}" should exist exactly `
             + `${exactly} time(s)`
         );
     } else {
-        expect(nrOfElements).to.have.length.of.at.least(
+        chai.expect(nrOfElements).to.have.length.of.at.least(
             1,
             `Element with selector "${selector}" should exist on the page`
         );

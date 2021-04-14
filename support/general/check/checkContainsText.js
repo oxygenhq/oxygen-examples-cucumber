@@ -7,6 +7,7 @@
  * @param  {String}   expectedText  The text to check against
  */
 export default (elementType, selector, falseCase, expectedText) => {
+    const chai = require('chai');
     /**
      * The command to perform on the browser object
      * @type {String}
@@ -48,8 +49,8 @@ export default (elementType, selector, falseCase, expectedText) => {
     }
 
     if (boolFalseCase) {
-        expect(text).to.not.contain(stringExpectedText);
+        chai.expect(text).to.not.contain(stringExpectedText);
     } else {
-        expect(text).to.contain(stringExpectedText);
+        chai.expect(text).to.contain(stringExpectedText);
     }
 };

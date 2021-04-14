@@ -5,6 +5,7 @@
  * @param  {Type}     expectedTitle The expected title
  */
 export default (falseCase, expectedTitle) => {
+    const chai = require('chai');
     /**
      * The title of the current browser window
      * @type {String}
@@ -12,13 +13,13 @@ export default (falseCase, expectedTitle) => {
     const title = web.getTitle();
 
     if (falseCase) {
-        expect(title).to.not
+        chai.expect(title).to.not
             .equal(
                 expectedTitle,
                 `Expected title not to be "${expectedTitle}"`
             );
     } else {
-        expect(title).to
+        chai.expect(title).to
             .equal(
                 expectedTitle,
                 `Expected title to be "${expectedTitle}" but found "${title}"`

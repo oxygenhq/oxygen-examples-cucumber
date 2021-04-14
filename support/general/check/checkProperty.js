@@ -9,6 +9,7 @@
  * @param  {String}   expectedValue The value to match against
  */
 export default (isCSS, attrName, selector, falseCase, expectedValue) => {
+    const chai = require('chai');
     /**
      * The command to use for fetching the expected value
      * @type {String}
@@ -26,7 +27,7 @@ export default (isCSS, attrName, selector, falseCase, expectedValue) => {
      * @type {Mixed}
      */
     const elm = $(selector);
-    expect(elm).to.not.be.null;
+    chai.expect(elm).to.not.be.null;
     let attributeValue = elm[command](attrName);
 
     // eslint-disable-next-line
@@ -42,12 +43,12 @@ export default (isCSS, attrName, selector, falseCase, expectedValue) => {
         attributeValue = attributeValue.value;
     }
     if (falseCase) {
-        expect(attributeValue).to.not
+        chai.expect(attributeValue).to.not
             .equal(expectedValue,
                 `${attrType}: ${attrName} of element "${selector}" should `
                 + `not contain "${attributeValue}"`);
     } else {
-        expect(attributeValue).to
+        chai.expect(attributeValue).to
             .equal(expectedValue,
                 `${attrType}: ${attrName} of element "${selector}" should `
                 + `contain "${attributeValue}", but "${expectedValue}"`);

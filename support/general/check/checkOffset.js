@@ -7,6 +7,7 @@
  * @param  {String}   axis              The axis to check on (x or y)
  */
 export default (selector, falseCase, expectedPosition, axis) => {
+    const chai = require('chai');
     /**
      * Get the location of the element on the given axis
      * @type {[type]}
@@ -20,14 +21,14 @@ export default (selector, falseCase, expectedPosition, axis) => {
     const intExpectedPosition = parseFloat(expectedPosition);
 
     if (falseCase) {
-        expect(location).to.not
+        chai.expect(location).to.not
             .equal(
                 intExpectedPosition,
                 `Element "${selector}" should not be positioned at `
                 + `${intExpectedPosition}px on the ${axis} axis`
             );
     } else {
-        expect(location).to
+        chai.expect(location).to
             .equal(
                 intExpectedPosition,
                 `Element "${selector}" should be positioned at `

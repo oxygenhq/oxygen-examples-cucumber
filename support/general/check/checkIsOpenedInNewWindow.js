@@ -5,6 +5,7 @@
  */
 /* eslint-disable no-unused-vars */
 export default (expectedUrl, obsolete) => {
+    const chai = require('chai');
 /* eslint-enable no-unused-vars */
     /**
      * All the current window handles
@@ -12,7 +13,7 @@ export default (expectedUrl, obsolete) => {
      */
     const windowHandles = web.driver.getWindowHandles();
 
-    expect(windowHandles).length.to.not.equal(1, 'A popup was not opened');
+    chai.expect(windowHandles).length.to.not.equal(1, 'A popup was not opened');
 
     /**
      * The last opened window handle
@@ -29,7 +30,7 @@ export default (expectedUrl, obsolete) => {
      */
     const windowUrl = web.getUrl();
 
-    expect(windowUrl).to
+    chai.expect(windowUrl).to
         .contain(expectedUrl, 'The popup has a incorrect getUrl');
 
     web.closeWindow();

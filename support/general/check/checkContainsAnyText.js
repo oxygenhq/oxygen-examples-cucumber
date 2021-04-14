@@ -6,6 +6,7 @@
  *                                  text or not
  */
 export default (elementType, selector, falseCase) => {
+    const chai = require('chai');
     /**
      * The command to perform on the browser object
      * @type {String}
@@ -38,8 +39,8 @@ export default (elementType, selector, falseCase) => {
     }
 
     if (boolFalseCase) {
-        expect(text).to.equal('');
+        chai.expect(text).to.equal('');
     } else {
-        expect(text).to.not.equal('');
+        chai.expect(text).to.not.equal('');
     }
 };

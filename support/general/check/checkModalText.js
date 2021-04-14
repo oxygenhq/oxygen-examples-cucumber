@@ -6,6 +6,7 @@
  * @param  {String}   expectedText  The text to check against
  */
 export default (modalType, falseState, expectedText) => {
+    const chai = require('chai');
     try {
         /**
          * The text of the current modal
@@ -14,20 +15,20 @@ export default (modalType, falseState, expectedText) => {
         const text = web.getAlertText();
 
         if (falseState) {
-            expect(text).to.not.equal(
+            chai.expect(text).to.not.equal(
                 expectedText,
                 `Expected the text of ${modalType} not to equal `
                 + `"${expectedText}"`
             );
         } else {
-            expect(text).to.equal(
+            chai.expect(text).to.equal(
                 expectedText,
                 `Expected the text of ${modalType} to equal `
                 + `"${expectedText}", instead found "${text}"`
             );
         }
     } catch (e) {
-        assert(
+        chai.assert(
             e,
             `A ${modalType} was not opened when it should have been opened`
         );

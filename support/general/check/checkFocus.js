@@ -5,6 +5,7 @@
  *                              or not
  */
 export default (selector, falseCase) => {
+    const chai = require('chai');
     /**
      * Value of the hasFocus function for the given element
      * @type {Boolean}
@@ -12,10 +13,10 @@ export default (selector, falseCase) => {
     const hasFocus = $(selector).isFocused();
 
     if (falseCase) {
-        expect(hasFocus).to.not
+        chai.expect(hasFocus).to.not
             .equal(true, 'Expected element to not be focused, but it is');
     } else {
-        expect(hasFocus).to
+        chai.expect(hasFocus).to
             .equal(true, 'Expected element to be focused, but it is not');
     }
 };

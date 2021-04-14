@@ -5,6 +5,7 @@
  *                              is enabled or not
  */
 export default (selector, falseCase) => {
+    const chai = require('chai');
     /**
      * The enabled state of the given selector
      * @type {Boolean}
@@ -12,10 +13,10 @@ export default (selector, falseCase) => {
     const isEnabled = $(selector).isEnabled();
 
     if (falseCase) {
-        expect(isEnabled).to.not
+        chai.expect(isEnabled).to.not
             .equal(true, `Expected element "${selector}" not to be enabled`);
     } else {
-        expect(isEnabled).to
+        chai.expect(isEnabled).to
             .equal(true, `Expected element "${selector}" to be enabled`);
     }
 };

@@ -6,24 +6,25 @@
  * @param  {String}   expectedValue The value to check against
  */
 export default (name, falseCase, expectedValue) => {
+    const chai = require('chai');
     /**
      * The cookie retrieved from the browser object
      * @type {Object}
      */
     const cookie = web.getCookies(name)[0];
-    expect(cookie.name).to.equal(
+    chai.expect(cookie.name).to.equal(
         name,
         `no cookie found with the name "${name}"`
     );
 
     if (falseCase) {
-        expect(cookie.value).to.not
+        chai.expect(cookie.value).to.not
             .equal(
                 expectedValue,
                 `expected cookie "${name}" not to have value "${expectedValue}"`
             );
     } else {
-        expect(cookie.value).to
+        chai.expect(cookie.value).to
             .equal(
                 expectedValue,
                 `expected cookie "${name}" to have value "${expectedValue}"`

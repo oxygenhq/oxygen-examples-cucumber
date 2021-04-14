@@ -134,11 +134,6 @@ module.exports = {
         // can access Oxygen via 'ox' global variable. 
         //
         beforeTest: function(runId, options, caps) {
-            // setup chai assertions
-            const chai = require('chai');
-            global.expect = chai.expect;
-            global.assert = chai.assert;
-            global.should = chai.should();
             // initialize Oxygen web module
             web.init(); 
             web.setTimeout(1000);

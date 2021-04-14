@@ -5,6 +5,7 @@
  * @param  {String}   expectedUrlPart The string to check for
  */
 export default (falseCase, expectedUrlPart) => {
+    const chai = require('chai');
     /**
      * The URL of the current browser window
      * @type {String}
@@ -12,14 +13,14 @@ export default (falseCase, expectedUrlPart) => {
     const currentUrl = web.getUrl();
 
     if (falseCase) {
-        expect(currentUrl).to.not
+        chai.expect(currentUrl).to.not
             .contain(
                 expectedUrlPart,
                 `Expected URL "${currentUrl}" not to contain `
                 + `"${expectedUrlPart}"`
             );
     } else {
-        expect(currentUrl).to
+        chai.expect(currentUrl).to
             .contain(
                 expectedUrlPart,
                 `Expected URL "${currentUrl}" to contain "${expectedUrlPart}"`

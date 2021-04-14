@@ -7,6 +7,7 @@
  * @param  {String}   dimension    Dimension to check (broad or tall)
  */
 export default (selector, falseCase, expectedSize, dimension) => {
+    const chai = require('chai');
     /**
      * The size of the given element
      * @type {Object}
@@ -37,14 +38,14 @@ export default (selector, falseCase, expectedSize, dimension) => {
     }
 
     if (falseCase) {
-        expect(originalSize).to.not
+        chai.expect(originalSize).to.not
             .equal(
                 intExpectedSize,
                 `Element "${selector}" should not have a ${label} of `
                 + `${intExpectedSize}px`
             );
     } else {
-        expect(originalSize).to
+        chai.expect(originalSize).to
             .equal(
                 intExpectedSize,
                 `Element "${selector}" should have a ${label} of `

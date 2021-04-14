@@ -9,6 +9,7 @@
  * @param  {String}   expectedValue The value to match against
  */
 export default (isCSS, attrName, elem, falseCase, expectedValue) => {
+    const chai = require('chai');
     /**
      * The command to use for fetching the expected value
      * @type {String}
@@ -36,14 +37,14 @@ export default (isCSS, attrName, elem, falseCase, expectedValue) => {
     }
 
     if (falseCase) {
-        expect(attributeValue).to.not
+        chai.expect(attributeValue).to.not
             .equal(
                 expectedValue,
                 `${attrType}: ${attrName} of element "${elem}" should not `
                 + `contain "${attributeValue}"`
             );
     } else {
-        expect(attributeValue).to
+        chai.expect(attributeValue).to
             .equal(
                 expectedValue,
                 `${attrType}: ${attrName} of element "${elem}" should contain `
