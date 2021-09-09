@@ -4,7 +4,7 @@
  *                               confirmbox or prompt)
  * @param  {String}   falseState Whether to check if the modal was opened or not
  */
-export default (modalType, falseState) => {
+export default async (modalType, falseState) => {
     const chai = require('chai');
     /**
      * The text of the prompt
@@ -13,7 +13,7 @@ export default (modalType, falseState) => {
     let promptText = '';
 
     try {
-        promptText = web.getAlertText();
+        promptText = await web.getAlertText();
 
         if (falseState) {
             chai.expect(promptText).to.not

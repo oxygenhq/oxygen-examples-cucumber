@@ -6,13 +6,13 @@
  * @param  {String}   expectedSize Expected size
  * @param  {String}   dimension    Dimension to check (broad or tall)
  */
-export default (selector, falseCase, expectedSize, dimension) => {
+export default async (selector, falseCase, expectedSize, dimension) => {
     const chai = require('chai');
     /**
      * The size of the given element
      * @type {Object}
      */
-    const elementSize = $(selector).getSize();
+    const elementSize = await (await $(selector)).getSize();
 
     /**
      * Parsed size to check for

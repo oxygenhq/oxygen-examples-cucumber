@@ -4,13 +4,13 @@
  * @param  {String}   falseCase Whether to check if the given selector
  *                              is enabled or not
  */
-export default (selector, falseCase) => {
+export default async (selector, falseCase) => {
     const chai = require('chai');
     /**
      * The enabled state of the given selector
      * @type {Boolean}
      */
-    const isEnabled = $(selector).isEnabled();
+    const isEnabled = await (await $(selector)).isEnabled();
 
     if (falseCase) {
         chai.expect(isEnabled).to.not

@@ -4,8 +4,8 @@
  * @param  {String}   cookieName    The name of the cookie
  * @param  {String}   cookieContent The value of the cookie
  */
-export default (cookieName, cookieContent) => {
-    web.getDriver().setCookies({
+export default async (cookieName, cookieContent) => {
+    await (await web.getDriver()).setCookies({
         name: cookieName,
         value: cookieContent,
     });

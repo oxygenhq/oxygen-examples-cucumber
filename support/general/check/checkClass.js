@@ -5,13 +5,13 @@
  *                                      or not ('has', 'does not have')
  * @param  {String}   expectedClassName The class name to check
  */
-export default (selector, falseCase, expectedClassName) => {
+export default async (selector, falseCase, expectedClassName) => {
     const chai = require('chai');
     /**
      * List of all the classes of the element
      * @type {Array}
      */    
-    const classesList = $(selector).getAttribute('className').split(' ');
+    const classesList = (await (await $(selector)).getAttribute('className')).split(' ');
 
     if (falseCase === 'does not have') {
         chai.expect(classesList).to.not

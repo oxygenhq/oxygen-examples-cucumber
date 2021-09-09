@@ -2,6 +2,6 @@
  * Perform a key press
  * @param  {String}   key  The key to press
  */
-export default (key) => {
-    web.sendKeys(key);
+export default async (key) => {
+    await web.sendKeys(key);
 };

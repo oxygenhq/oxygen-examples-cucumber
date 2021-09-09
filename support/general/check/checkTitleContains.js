@@ -4,13 +4,13 @@
  *                                  expected value or not
  * @param  {Type}     expectedTitle The expected title
  */
-export default (falseCase, expectedTitle) => {
+export default async (falseCase, expectedTitle) => {
     const chai = require('chai');
     /**
      * The actual title of the current browser window
      * @type {String}
      */
-    const title = web.getTitle();
+    const title = await web.getTitle();
 
     if (falseCase) {
         chai.expect(title).to.not

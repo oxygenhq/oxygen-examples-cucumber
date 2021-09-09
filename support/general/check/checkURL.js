@@ -4,13 +4,13 @@
  *                                expected value or not
  * @param  {String}   expectedUrl The expected URL to check against
  */
-export default (falseCase, expectedUrl) => {
+export default async (falseCase, expectedUrl) => {
     const chai = require('chai');
     /**
      * The current browser window's URL
      * @type {String}
      */
-    const currentUrl = web.getUrl();
+    const currentUrl = await web.getUrl();
 
     if (falseCase) {
         chai.expect(currentUrl).to.not

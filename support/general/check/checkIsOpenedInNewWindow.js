@@ -4,14 +4,14 @@
  * @param  {String}   obsolete    Indicator for the type (window or tab) unused
  */
 /* eslint-disable no-unused-vars */
-export default (expectedUrl, obsolete) => {
+export default async (expectedUrl, obsolete) => {
     const chai = require('chai');
 /* eslint-enable no-unused-vars */
     /**
      * All the current window handles
      * @type {Object}
      */
-    const windowHandles = web.driver.getWindowHandles();
+    const windowHandles = await web.driver.getWindowHandles();
 
     chai.expect(windowHandles).length.to.not.equal(1, 'A popup was not opened');
 
@@ -22,16 +22,16 @@ export default (expectedUrl, obsolete) => {
     const lastWindowHandle = windowHandles.slice(-1);
 
     // Make sure we focus on the last opened window handle
-    web.selectWindow(lastWindowHandle[0]);
+    await web.selectWindow(lastWindowHandle[0]);
 
     /**
      * Get the URL of the current browser window
      * @type {String}
      */
-    const windowUrl = web.getUrl();
+    const windowUrl = await web.getUrl();
 
     chai.expect(windowUrl).to
         .contain(expectedUrl, 'The popup has a incorrect getUrl');
 
-    web.closeWindow();
+    await web.closeWindow();
 };
