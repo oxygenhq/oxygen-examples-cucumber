@@ -5,19 +5,19 @@
  *                              elements match or not
  * @param  {String}   selector2  Element selector for the second element
  */
-export default (selector1, falseCase, selector2) => {
+export default async (selector1, falseCase, selector2) => {
     const chai = require('chai');
     /**
      * The text of the first element
      * @type {String}
      */
-    const text1 = $(selector1).getText();
+    const text1 = await (await $(selector1)).getText();
 
     /**
      * The text of the second element
      * @type {String}
      */
-    const text2 = $(selector2).getText();
+    const text2 = await (await $(selector2)).getText();
 
     if (falseCase) {
         chai.expect(text1).to.not.equal(

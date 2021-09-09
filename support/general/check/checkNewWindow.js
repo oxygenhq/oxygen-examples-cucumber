@@ -4,7 +4,7 @@
  * @param  {String}   falseCase Whether to check if a new window/tab was opened
  *                              or not
  */
-export default (obsolete, falseCase) => {
+export default async (obsolete, falseCase) => {
     const chai = require('chai');
     /**
      * The handles of all open windows/tabs

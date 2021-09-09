@@ -8,7 +8,7 @@
  *                                  attribute matches or not
  * @param  {String}   expectedValue The value to match against
  */
-export default (isCSS, attrName, selector, falseCase, expectedValue) => {
+export default async (isCSS, attrName, selector, falseCase, expectedValue) => {
     const chai = require('chai');
     /**
      * The command to use for fetching the expected value
@@ -26,9 +26,9 @@ export default (isCSS, attrName, selector, falseCase, expectedValue) => {
      * The actual attribute value
      * @type {Mixed}
      */
-    const elm = $(selector);
+    const elm = await $(selector);
     chai.expect(elm).to.not.be.null;
-    let attributeValue = elm[command](attrName);
+    let attributeValue = await elm[command](attrName);
 
     // eslint-disable-next-line
     expectedValue = isFinite(expectedValue) ?

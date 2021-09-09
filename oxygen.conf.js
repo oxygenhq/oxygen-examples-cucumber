@@ -133,10 +133,10 @@ module.exports = {
         // At this point, Oxygen has been already initialized, so you
         // can access Oxygen via 'ox' global variable. 
         //
-        beforeTest: function(runId, options, caps) {
+        beforeTest: async function(runId, options, caps) {
             // initialize Oxygen web module
-            web.init(); 
-            web.setTimeout(1000);
+            await web.init(); 
+            await web.setTimeout(1000);
             global.$ = web.findElement;
             global.$$ = web.findElements;
             // initialize Applitools
@@ -154,8 +154,8 @@ module.exports = {
         },
         afterSuite: function(runId, suiteResult, error) {
         },
-        afterTest: function(runId, testResult, error) {
-            web.dispose(testResult.status);
+        afterTest: async function(runId, testResult, error) {
+            await web.dispose(testResult.status);
         }
     }
 };

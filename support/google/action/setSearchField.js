@@ -4,6 +4,6 @@
  * @param  {String}   value   The value to set the selector to
  * @param  {String}   selector Element selector
  */
-export default (value) => {
-    web.type('name=q', value);
+export default async (value) => {
+    await web.type('name=q', value);
 };

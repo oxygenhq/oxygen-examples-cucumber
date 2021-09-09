@@ -5,13 +5,13 @@
  *                                  or not
  * @param  {String}   expectedValue The value to check against
  */
-export default (name, falseCase, expectedValue) => {
+export default async (name, falseCase, expectedValue) => {
     const chai = require('chai');
     /**
      * The cookie retrieved from the browser object
      * @type {Object}
      */
-    const cookie = web.getCookies(name)[0];
+    const cookie = await web.getCookies(name)[0];
     chai.expect(cookie.name).to.equal(
         name,
         `no cookie found with the name "${name}"`

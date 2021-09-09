@@ -3,6 +3,6 @@
  * @param  {String}   selector      The selector for the source element
  * @param  {String}   destination The selector for the destination element
  */
-export default (selector, destination) => {
-    $(selector).dragAndDrop($(destination));
+export default async (selector, destination) => {
+    await (await $(selector)).dragAndDrop(await $(destination));
 };

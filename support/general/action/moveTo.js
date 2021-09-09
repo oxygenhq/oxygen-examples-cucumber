@@ -4,7 +4,7 @@
  * @param  {String}   x        X coordinate to move to
  * @param  {String}   y        Y coordinate to move to
  */
-export default (selector, x, y) => {
+export default async (selector, x, y) => {
     /**
      * X coordinate
      * @type {Int}
@@ -17,5 +17,5 @@ export default (selector, x, y) => {
      */
     const intY = parseInt(y, 10) || undefined;
 
-    $(selector).moveTo(intX, intY);
+    await (await $(selector)).moveTo(intX, intY);
 };

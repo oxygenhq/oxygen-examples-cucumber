@@ -5,13 +5,13 @@
  * @param  {Number}  exactly  Check if the element exists exactly this number
  *                            of times
  */
-export default (selector, falsCase, exactly) => {
+export default async (selector, falsCase, exactly) => {
     const chai = require('chai');
     /**
      * The number of elements found in the DOM
      * @type {Int}
      */
-    const nrOfElements = $$(selector);
+    const nrOfElements = await $$(selector);
 
     if (falsCase === true) {
         chai.expect(nrOfElements).to.have.lengthOf(
